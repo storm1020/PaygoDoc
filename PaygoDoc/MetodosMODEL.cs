@@ -57,5 +57,19 @@ namespace PaygoDoc
             PW_iPPRemoveCard = 21,
             PW_iTransactionInquiry = 22
         }
+
+        public static string RetornaNomeDoMetodo(int indice)
+        {
+            string retorno = string.Empty;
+
+            retorno = Convert.ToString(Enum.GetName(typeof(Metodos), indice));
+
+            //foreach (var item in Enum.GetValues(typeof(Metodos)))
+            //{
+                
+            //}
+
+            return retorno;
+        }
     }
 }

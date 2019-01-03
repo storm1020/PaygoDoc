@@ -41,6 +41,21 @@ namespace PaygoDoc
             {
                 MessageBox.Show("Por favor, selecione um metodo.");
             }
+
+            AddParametroEscolhido(cbBox.SelectedIndex.ToString());
+
+        }
+
+        public void AddParametroEscolhido(string param)
+        {
+            lstChoice.Items.Add(MetodosMODEL.RetornaNomeDoMetodo(Convert.ToInt16(cbBox.SelectedIndex)));
+
+            RemoverItensDaLista();
+        }
+
+        public void RemoverItensDaLista()
+        {
+
         }
 
         public void PopularMenu()

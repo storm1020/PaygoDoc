@@ -7,8 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Topmost="True">
     <Grid>
-        <ComboBox Name="cbBox" HorizontalAlignment="Left" Margin="193,124,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button Name="btnClean" Content="Limpar" HorizontalAlignment="Left" Margin="193,188,0,0" VerticalAlignment="Top" Width="75" Click="BtnCancel_Click"/>
-        <Button Name="btnConfirm" Content="Confirmar" HorizontalAlignment="Left" Margin="445,190,0,0" VerticalAlignment="Top" Width="75" Click="BtnConfirm_Click"/>
+        <ComboBox Name="cbBox" HorizontalAlignment="Left" Margin="231,189,0,0" VerticalAlignment="Top" Width="266"/>
+        <Button Name="btnClean" Content="Limpar" HorizontalAlignment="Left" Margin="231,221,0,0" VerticalAlignment="Top" Width="75" Click="BtnCancel_Click"/>
+        <Button Name="btnConfirm" Content="Confirmar" HorizontalAlignment="Left" Margin="422,221,0,0" VerticalAlignment="Top" Width="75" Click="BtnConfirm_Click"/>
+        <ListBox Name="lstChoice" HorizontalAlignment="Left" Height="100" Margin="231,71,0,0" VerticalAlignment="Top" Width="266"/>
     </Grid>
 </Window>
