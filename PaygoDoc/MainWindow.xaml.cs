@@ -21,7 +21,6 @@ namespace PaygoDoc
     /// </summary>
     public partial class MainWindow : Window
     {
-        // teste
         public MainWindow()
         {
             InitializeComponent();
