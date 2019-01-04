@@ -17,7 +17,7 @@ using static PaygoDoc.MetodosMODEL;
 namespace PaygoDoc
 {
     /// <summary>
-    /// Interação lógica para MainWindow.xam
+    /// Interação lógica para MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
