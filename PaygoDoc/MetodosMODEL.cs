@@ -60,16 +60,13 @@ namespace PaygoDoc
 
         public static string RetornaNomeDoMetodo(int indice)
         {
-            string retorno = string.Empty;
+            return Convert.ToString(Enum.GetName(typeof(Metodos), indice));
+        }
 
-            retorno = Convert.ToString(Enum.GetName(typeof(Metodos), indice));
-
-            //foreach (var item in Enum.GetValues(typeof(Metodos)))
-            //{
-                
-            //}
-
-            return retorno;
+        public static string RetornaNomeEhValor(int indice, string valor)
+        {
+            Metodos mtd = new Metodos();
+            return Convert.ToString(string.Format("{0}, {1}", indice = (int)mtd, valor = mtd.ToString()));
         }
     }
 }

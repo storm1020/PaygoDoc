@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PaygoDoc"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Topmost="True">
+        Title="PaygoDocWindow" Height="425.71" Width="635.085" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Topmost="True" Background="#FFE0E0E0" FontFamily="Tahoma" FontSize="16" WindowStyle="ToolWindow">
     <Grid>
-        <ComboBox Name="cbBox" HorizontalAlignment="Left" Margin="231,189,0,0" VerticalAlignment="Top" Width="266"/>
-        <Button Name="btnClean" Content="Limpar" HorizontalAlignment="Left" Margin="231,221,0,0" VerticalAlignment="Top" Width="75" Click="BtnCancel_Click"/>
-        <Button Name="btnConfirm" Content="Confirmar" HorizontalAlignment="Left" Margin="422,221,0,0" VerticalAlignment="Top" Width="75" Click="BtnConfirm_Click"/>
-        <ListBox Name="lstChoice" HorizontalAlignment="Left" Height="100" Margin="231,71,0,0" VerticalAlignment="Top" Width="266"/>
+        <ComboBox Name="cbBox" HorizontalAlignment="Left" Margin="130,65,0,0" VerticalAlignment="Top" Width="365" Height="25" ClipToBounds="True" SnapsToDevicePixels="True"/>
+        <Button Name="btnClean" Content="Limpar" HorizontalAlignment="Left" Margin="130,107,0,0" VerticalAlignment="Top" Width="102" Click="BtnCancel_Click" Height="23" ClipToBounds="True" SnapsToDevicePixels="True"/>
+        <Button Name="btnConfirm" Content="Inserir" HorizontalAlignment="Left" Margin="391,107,0,0" VerticalAlignment="Top" Width="104" Click="BtnConfirm_Click" Height="23" ClipToBounds="True" SnapsToDevicePixels="True"/>
+        <ListBox Name="lstChoice" HorizontalAlignment="Left" Height="102" Margin="134,175,0,0" VerticalAlignment="Top" Width="365" ClipToBounds="True" SnapsToDevicePixels="True"/>
+        <Button Content="Gerar XML" HorizontalAlignment="Left" Margin="238,301,0,0" VerticalAlignment="Top" Width="146" Height="36" Background="#FF49A2FB" FontFamily="Tahoma" FontSize="16" Foreground="White" ClipToBounds="True" SnapsToDevicePixels="True"/>
+        <Label Content="Metodos Selecionados" HorizontalAlignment="Left" Margin="130,148,0,0" VerticalAlignment="Top" FontSize="14" FontFamily="Tahoma" Height="27" Width="200" ClipToBounds="True" SnapsToDevicePixels="True"/>
+        <Label Content="Selecionar Metodos: " HorizontalAlignment="Left" Margin="122,39,0,0" VerticalAlignment="Top" Height="26" Width="184" FontSize="14" FontFamily="Tahoma" RenderTransformOrigin="1.097,0.791" ClipToBounds="True" SnapsToDevicePixels="True"/>
+        <Button Name="btnRemove" Content="Remover" HorizontalAlignment="Left" Margin="260,107,0,0" VerticalAlignment="Top" Height="23" Width="104" FontFamily="Tahoma" Click="BtnRemove_Click"/>
     </Grid>
 </Window>

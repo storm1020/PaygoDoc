@@ -21,6 +21,7 @@ namespace PaygoDoc
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region WindowsFormComands
         public MainWindow()
         {
             InitializeComponent();
@@ -32,7 +33,9 @@ namespace PaygoDoc
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-            cbBox.Text = "";
+            cbBox.Items.Clear();
+            lstChoice.Items.Clear();
+            PopularMenu();
         }
 
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
@@ -41,28 +44,91 @@ namespace PaygoDoc
             {
                 MessageBox.Show("Por favor, selecione um metodo.");
             }
+            else
+            {
+                string selecionado = AddParametroEscolhido(cbBox.SelectedItem.ToString());
 
-            AddParametroEscolhido(cbBox.SelectedIndex.ToString());
-
+                RemoveItemDaLista(selecionado);
+            }
         }
 
-        public void AddParametroEscolhido(string param)
+        private void BtnRemove_Click(object sender, RoutedEventArgs e)
         {
-            lstChoice.Items.Add(MetodosMODEL.RetornaNomeDoMetodo(Convert.ToInt16(cbBox.SelectedIndex)));
+            if (!ValidarLstItem())
+            {
+                MessageBox.Show("Selecione um item");
+            }
+            else
+            {
+                string selecionado = lstChoice.SelectedItem.ToString();
 
-            RemoverItensDaLista();
+                lstChoice.Items.Remove(selecionado);
+
+                InsereValorNaCombo(selecionado);
+            }
         }
+        #endregion
 
-        public void RemoverItensDaLista()
-        {
-
-        }
-
-        public void PopularMenu()
+        #region Metodos gerais
+        private void PopularMenu()
         {
             foreach (string item in Enum.GetNames(typeof(Metodos)))
             {
                 cbBox.Items.Add(item);
+            }
+        }
+
+        private string AddParametroEscolhido(string param)
+        {
+            if (IdentificarDuplicidade(param))
+            {
+                if (param.Equals(Metodos.Todos.ToString()))
+                {
+                    PopularLista();
+                }
+                else
+                {
+                    lstChoice.Items.Add(param);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Item já selecionado!");
+            }
+
+            return param;
+        }
+
+        private void PopularLista()
+        {
+            foreach (var item in Enum.GetNames(typeof(Metodos)))
+            {
+                if (item != Metodos.Todos.ToString())
+                {
+                    lstChoice.Items.Add(item);
+                }
+            }
+        }
+
+        private bool IdentificarDuplicidade(string param)
+        {
+            if (lstChoice.Items.Contains(param)) return false;
+            return true;
+        }
+
+        private void RemoveItemDaLista(string param)
+        {
+            if (lstChoice.Items.Contains(param))
+            {
+                cbBox.Items.Remove(param);
+            }
+        }
+
+        private void InsereValorNaCombo(string param)
+        {
+            if (!cbBox.Items.Contains(param))
+            {
+                cbBox.Items.Add(param);
             }
         }
 
@@ -71,5 +137,12 @@ namespace PaygoDoc
             if (cbBox.SelectedIndex == -1) return false;
             return true;
         }
+
+        private bool ValidarLstItem()
+        {
+            if (lstChoice.SelectedIndex == -1) return false;
+            return true;
+        }
+        #endregion
     }
 }
