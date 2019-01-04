@@ -144,5 +144,11 @@ namespace PaygoDoc
             return true;
         }
         #endregion
+
+        private void BtnGerar_Click(object sender, RoutedEventArgs e)
+        {
+            Exibicao ex = new Exibicao();
+            
+        }
     }
 }
