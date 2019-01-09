@@ -6,8 +6,21 @@ using System.Threading.Tasks;
 
 namespace PaygoDoc
 {
-    public class MetodosMODEL
+    public class MetodosMODEL : EntradaMODEL
     {
+        public string Nome {get;set;}
+        public EntradaMODEL Entrada { get; set; }
+        public RetornoMODEL Retorno { get; set; }
+
+        public MetodosMODEL() { }
+
+        public MetodosMODEL(string nm, EntradaMODEL etd, RetornoMODEL rt)
+        {
+            this.Nome = nm;
+            this.Entrada = etd;
+            this.Retorno = rt;
+        }
+
         public enum Metodos : int
         {
             Todos = 0,
@@ -33,11 +46,6 @@ namespace PaygoDoc
             PW_iPPWaitEvent = 20,
             PW_iPPRemoveCard = 21,
             PW_iTransactionInquiry = 22
-        }
-
-        public string RetornaNomeDoMetodo(string param)
-        {
-            return Convert.ToString(Enum.GetNames(typeof(Metodos)));
         }
     }
 }

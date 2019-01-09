@@ -145,10 +145,30 @@ namespace PaygoDoc
         }
         #endregion
 
+        private string LerListaEcolhas()
+        {
+            string retorno = string.Empty;
+
+            if (lstChoice.Items.Count == 0)
+            {
+                MessageBox.Show("A lista não contém itens.");
+            }
+            else
+            {
+                foreach (var item in lstChoice.Items)
+                {
+                    retorno = item.ToString();
+                }
+            }
+
+            return retorno;
+        }
+
         private void BtnGerar_Click(object sender, RoutedEventArgs e)
         {
-            Exibicao ex = new Exibicao();
-            
+            Exibicao exibicao = new Exibicao();
+            string select = LerListaEcolhas();
+            MessageBox.Show(exibicao.ExibeMetodo(select));
         }
     }
 }
