@@ -166,6 +166,14 @@ namespace PaygoDoc
 
         private void BtnGerar_Click(object sender, RoutedEventArgs e)
         {
+            EntradaMAIN etdm = new EntradaMAIN();
+
+            List<string> testeRetorno = new List<string>();
+            List<string> testeRetornoD = new List<string>();
+
+            testeRetorno = etdm.GetParametrosOper();
+            testeRetornoD = etdm.GetParametrosComValores();
+
             Exibicao exibicao = new Exibicao();
             string select = LerListaEcolhas();
             MessageBox.Show(exibicao.ExibeMetodo(select));
