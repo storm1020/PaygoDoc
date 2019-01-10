@@ -71,6 +71,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EntradaMAIN.cs" />
+    <Compile Include="EntradaMODEL.cs" />
+    <Compile Include="MetodoMAIN.cs" />
+    <Compile Include="RetornoMAIN.cs" />
     <Compile Include="RetornoMODEL.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -80,7 +84,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="EntradaMODEL.cs" />
     <Compile Include="Exibicao.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

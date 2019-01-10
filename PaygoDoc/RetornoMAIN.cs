@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PaygoDoc
 {
-    class RetornoMODEL
+    class RetornoMAIN
     {
     }
 }

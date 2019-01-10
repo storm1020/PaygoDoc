@@ -43,6 +43,8 @@ namespace PaygoDoc
             this.Descricao = ds;
         }
 
+
+
         public string ExibeMetodo (string param)
         {
             string retorno = string.Empty;
@@ -55,8 +57,8 @@ namespace PaygoDoc
                         ex = new Exibicao("PW_iInit",
                                           "string pszWorkingDir (Diretório de trabalho, caminho completo, com final nulo para uso exclusivo do PayGo Web)",
                                           "Impletentar: short / Utilizar: int16 ou int32",
-                                          "int ret = Interop.PW_iInit(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + \\PGWebLib\\)", 
-                                          "Método que inicia a biblíoteca Paygo, só reutilizar caso a ligação com a biblioteca (DLL) seja perdida ou reiniciada."
+                                          "int ret = Interop.PW_iInit(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + \\PGWebLib\\)",
+                                          "Esta função é utilizada para inicializar a biblioteca, e retorna imediatamente. Deve ser garantido que uma chamada dela retorne PWRET_OK antes de chamar qualquer outra função."
                                           );
                         retorno = ex.GetAll();
                         break;

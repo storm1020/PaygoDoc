@@ -6,21 +6,8 @@ using System.Threading.Tasks;
 
 namespace PaygoDoc
 {
-    public class MetodosMODEL : EntradaMODEL
+    public class MetodosMODEL
     {
-        public string Nome {get;set;}
-        public EntradaMODEL Entrada { get; set; }
-        public RetornoMODEL Retorno { get; set; }
-
-        public MetodosMODEL() { }
-
-        public MetodosMODEL(string nm, EntradaMODEL etd, RetornoMODEL rt)
-        {
-            this.Nome = nm;
-            this.Entrada = etd;
-            this.Retorno = rt;
-        }
-
         public enum Metodos : int
         {
             Todos = 0,
