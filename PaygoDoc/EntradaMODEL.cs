@@ -27,7 +27,7 @@ namespace PaygoDoc
             /// <summary>
             /// Registra o Ponto de captura perante a infraestrutura do PayGo Web, para que seja autorizado realizar a trnasação.
             /// </summary>
-            [Description("Valor: 01h, Registra o Ponto de Captura perante a infraestrutura do Pay&Go Web, para que seja autorizado a realizar transações.")]
+            [Description("Valor: 01h, Registra o Ponto de Captura perante a infraestrutura do PayGo Web, para que seja autorizado a realizar transações.")]
             PWOPER_INSTALL = 1,
 
             /// <summary>
