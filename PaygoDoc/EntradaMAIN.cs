@@ -40,7 +40,7 @@ namespace PaygoDoc
         /// 
         /// </summary>
         /// <returns></returns>
-        public List<string> GetParametrosComValores()
+        public List<string> GetParametrosComValoresOper()
         {
             List<string> retorno = new List<string>();
             foreach (PWOPER pwoper in Enum.GetValues(typeof(PWOPER)))
@@ -76,7 +76,6 @@ namespace PaygoDoc
                 retorno.Add(string.Format("{0} {1}", Convert.ToString((int)pwinfo), pwinfo.ToString()));
             }
             return retorno;
-        }
-        
+        }        
     }
 }

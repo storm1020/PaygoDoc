@@ -8,18 +8,24 @@ namespace PaygoDoc
 {
     public class MetodoMAIN : MetodosMODEL
     {
-        public List<string> Metodos { get; set; }
-
-        public List<string> GetMetodos()
+        public static List<string> GetMetodos()
         {
+            List<string> retorno = new List<string>();
             foreach (var item in Enum.GetNames(typeof(Metodos)))
             {
-                if (!item.Equals("Todos"))
-                {
-                    Metodos.Add(item);
-                }                
+                if (!item.Equals("Todos")) retorno.Add(item);
             }
-            return Metodos;
+            return retorno;
+        }
+
+        public static List<string> GetAllMetodos()
+        {
+            List<string> retorno = new List<string>();
+            foreach (var item in Enum.GetNames(typeof(Metodos)))
+            {
+                retorno.Add(item);
+            }
+            return retorno;
         }
     }
 }

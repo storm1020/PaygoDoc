@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static PaygoDoc.MetodosMODEL;
+using static PaygoDoc.MetodoMAIN;
 
 namespace PaygoDoc
 {
@@ -72,7 +73,7 @@ namespace PaygoDoc
         #region Metodos gerais
         private void PopularMenu()
         {
-            foreach (string item in Enum.GetNames(typeof(Metodos)))
+            foreach (var item in MetodoMAIN.GetAllMetodos())
             {
                 cbBox.Items.Add(item);
             }
@@ -166,17 +167,7 @@ namespace PaygoDoc
 
         private void BtnGerar_Click(object sender, RoutedEventArgs e)
         {
-            EntradaMAIN etdm = new EntradaMAIN();
-
-            List<string> testeRetorno = new List<string>();
-            List<string> testeRetornoD = new List<string>();
-
-            testeRetorno = etdm.GetParametrosOper();
-            testeRetornoD = etdm.GetParametrosComValores();
-
-            Exibicao exibicao = new Exibicao();
             string select = LerListaEcolhas();
-            MessageBox.Show(exibicao.ExibeMetodo(select));
         }
     }
 }
