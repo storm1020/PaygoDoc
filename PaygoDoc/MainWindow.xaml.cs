@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static PaygoDoc.MetodosMODEL;
 using static PaygoDoc.MetodoMAIN;
+using static PaygoDoc.DescricaoMAIN;
+using static PaygoDoc.EntradaMODEL;
 
 namespace PaygoDoc
 {
@@ -167,7 +169,7 @@ namespace PaygoDoc
 
         private void BtnGerar_Click(object sender, RoutedEventArgs e)
         {
-            string select = LerListaEcolhas();
+            List<string> descricao = new List<string>();
         }
     }
 }

@@ -71,6 +71,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DescricaoMAIN.cs" />
     <Compile Include="EntradaMAIN.cs" />
     <Compile Include="EntradaMODEL.cs" />
     <Compile Include="MetodoMAIN.cs" />

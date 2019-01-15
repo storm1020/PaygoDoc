@@ -8,6 +8,6 @@ namespace PaygoDoc
 {
     public class Exibicao
     {
-        public string Nome { get; set; }
+
     }
 }

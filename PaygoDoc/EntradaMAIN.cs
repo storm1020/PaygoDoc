@@ -8,11 +8,19 @@ namespace PaygoDoc
 {
     public class EntradaMAIN : EntradaMODEL
     {
+        public string[] Entrada { get; set; }
+
+        public void SetEntrada(string[] etd)
+        {
+            this.Entrada = etd;
+        }
+
+
         /// <summary>
         /// Metodo responsável por varrer e preencher uma lista contendo os parametros que compõe uma função da DLL.
         /// </summary>
         /// <returns>ParamentrosDefault, lista de parametros que não representão funções para DLL.</returns>
-        public List<string> GetParametrosDefault()
+        public static List<string> GetParametrosDefault()
         {
             List<string> retorno = new List<string>();
             foreach (var item in Enum.GetNames(typeof(Default)))
@@ -26,7 +34,7 @@ namespace PaygoDoc
         /// Metodo responsável por varrer e preencher uma lista contendo os parametros que são funções para DLL.
         /// </summary>
         /// <returns>ParametrosOper, lista contendo as operações que podem ser utilizadas na DLL.</returns>
-        public List<string> GetParametrosOper()
+        public static List<string> GetParametrosOper()
         {
             List<string> retorno = new List<string>();
             foreach (var item in Enum.GetNames(typeof(PWOPER)))
@@ -40,7 +48,7 @@ namespace PaygoDoc
         /// 
         /// </summary>
         /// <returns></returns>
-        public List<string> GetParametrosComValoresOper()
+        public static List<string> GetParametrosComValoresOper()
         {
             List<string> retorno = new List<string>();
             foreach (PWOPER pwoper in Enum.GetValues(typeof(PWOPER)))
@@ -54,7 +62,7 @@ namespace PaygoDoc
         /// 
         /// </summary>
         /// <returns></returns>
-        public List<string> GetParametroInfo()
+        public static List<string> GetParametroInfo()
         {
             List<string> retorno = new List<string>();
             foreach (var item in Enum.GetNames(typeof(PWINFO)))
@@ -68,7 +76,7 @@ namespace PaygoDoc
         /// 
         /// </summary>
         /// <returns></returns>
-        public List<string> GetParametrosComValoresInfo()
+        public static List<string> GetParametrosComValoresInfo()
         {
             List<string> retorno = new List<string>();
             foreach (PWINFO pwinfo in Enum.GetValues(typeof(PWINFO)))
@@ -76,6 +84,18 @@ namespace PaygoDoc
                 retorno.Add(string.Format("{0} {1}", Convert.ToString((int)pwinfo), pwinfo.ToString()));
             }
             return retorno;
-        }        
+        }
+
+        public static List<string> GetEntradaPorMetodo(string param)
+        {
+            List<string> parametroRetorno = new List<string>();
+            switch (param)
+            {
+                case "Pw_iInit":
+                    parametroRetorno.Add(Convert.ToString(Default.pszWorkingDir));
+                    break;
+            }
+            return parametroRetorno;
+        }
     }
 }
