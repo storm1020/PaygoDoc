@@ -169,7 +169,14 @@ namespace PaygoDoc
 
         private void BtnGerar_Click(object sender, RoutedEventArgs e)
         {
-            List<string> descricao = new List<string>();
+            List<string> descricoes = new List<string>();
+
+            descricoes = GetAllDescricoesEnum();
+
+            foreach (var item in descricoes)
+            {
+                MessageBox.Show(item);
+            }
         }
     }
 }

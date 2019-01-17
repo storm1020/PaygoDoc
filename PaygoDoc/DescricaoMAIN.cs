@@ -11,33 +11,56 @@ namespace PaygoDoc
 {
     public class DescricaoMAIN
     {
-        public static List<string> GetAllPwinfo()
+        public static string GetDescricaoEnum()
         {
-            List<string> retorno = new List<string>();
-            foreach (var item in DescriptionAttribute.GetCustomAttributes(typeof(PWINFO)))
+            var val = PWINFO.PWINFO_AUTCAP;
+            var desc = "None";
+
+            var field = val.GetType()
+                        .GetField(val.ToString());
+
+            var attr = field.GetCustomAttributes(
+                typeof(DescriptionAttribute),
+                false
+                );
+
+            if (attr.Length > 0)
             {
-                retorno.Add(item.ToString());
+                var da =
+                    attr[0] as DescriptionAttribute;
+
+                desc = da.Description;
             }
-            return retorno;
+
+            return desc;
         }
 
-        public static List<string> GetAllPwOper()
+        public static List<string> GetAllDescricoesEnum()
         {
+            var desc = "None";
             List<string> retorno = new List<string>();
-            foreach (var item in DescriptionAttribute.GetCustomAttributes(typeof(PWOPER)))
-            {
-                retorno.Add(item.ToString());
-            }
-            return retorno;
-        }
 
-        public static List<string> GetAllDefault()
-        {
-            List<string> retorno = new List<string>();
-            foreach (var item in DescriptionAttribute.GetCustomAttributes(typeof(Default)))
+            foreach (var val in Enum.GetValues(typeof(PWINFO)))
             {
-                retorno.Add(item.ToString());
+                var campo = val.GetType()
+                            .GetField(val.ToString());
+
+                var attr = campo.GetCustomAttributes(
+                    typeof(DescriptionAttribute),
+                    false
+                    );
+
+                if (attr.Length > 0)
+                {
+                    var da =
+                        attr[0] as DescriptionAttribute;
+
+                    desc = da.Description;
+                }
+
+                retorno.Add(desc);
             }
+
             return retorno;
         }
     }
