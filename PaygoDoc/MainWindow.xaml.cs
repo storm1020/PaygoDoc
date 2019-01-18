@@ -175,7 +175,7 @@ namespace PaygoDoc
 
             foreach (var item in descricoes)
             {
-                MessageBox.Show(item);
+
             }
         }
     }
