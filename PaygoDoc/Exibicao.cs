@@ -12,25 +12,92 @@ namespace PaygoDoc
 {
     public class Exibicao
     {
-        public string NomeMetodo { get; set; }
-        public string[] EntradaMetodo { get; set; }
+        public List<string> NomeMetodo { get; set; }
+        public List<string> EntradaMetodo { get; set; }
         public string DescricaoMetodo { get; set; }
-        public string[] ExemploMetodo { get; set; }
+        public List<string> ExemploMetodo { get; set; }
+
+        public Exibicao() { }
+
+        public Exibicao(List<string> nmmtd, List<string> etdmtd, string ds, List<string> exmtd)
+        {
+            this.NomeMetodo = nmmtd;
+            this.EntradaMetodo = etdmtd;
+            this.DescricaoMetodo = ds;
+            this.ExemploMetodo = exmtd;
+        }
 
         public string GetAll ()
         {
-            string formato = string.Format("{0}, {1}, {2}, {3}", "Nome:" + NomeMetodo,  "Entrada(s):" + EntradaMetodo, "Descrição:" + DescricaoMetodo, "Exemplo(s): " + ExemploMetodo);
-            formato = string.Join(",", formato);
-
-            return formato;
+            return NomeMetodo + "," + EntradaMetodo + "," +  DescricaoMetodo + "," + ExemploMetodo;
         }
 
-        public void SetAll(string nm, string[] etd, string ds, string ex)
+        public string GetNomeMetodo()
+        {
+            return NomeMetodo.ToString();
+        }
+
+        public List<string> GetEntradaMetodo()
+        {
+            return EntradaMetodo;
+        }
+
+        public string GetDescricaoMetodo()
+        {
+            return DescricaoMetodo;
+        }
+
+        public List<string> GetExemploMetodo()
+        {
+            return ExemploMetodo;
+        }
+
+        public void SetAll(List<string> nm, List<string> etd, string ds, List<string> ex)
         {
             this.NomeMetodo = nm;
             this.EntradaMetodo = etd;
             this.DescricaoMetodo = ds;
-            this.ExemploMetodo[] = ex;
+            this.ExemploMetodo = ex;
+        }
+
+        public void SetNomeMetodo(List<string> nmmtd)
+        {
+            this.NomeMetodo = nmmtd;
+        }
+
+        public void SetEntradaMetodo(List<string> etdMetodo)
+        {
+            this.EntradaMetodo = etdMetodo;
+        }
+
+        public void SetDescricaoMetodo(string dsc)
+        {
+            this.DescricaoMetodo = dsc;
+        }
+
+        public void SetExemploMetodo(List<string> exmtd)
+        {
+            this.EntradaMetodo = exmtd;
+        }
+
+        public Exibicao MontarExibicao(Exibicao objExibicao)
+        {
+            Exibicao obj = objExibicao;
+
+            foreach (var nome in obj.GetNomeMetodo())
+            {
+                string nm = nome.ToString();
+                switch (nm)
+                {
+                    case "PW_iInit":
+
+                        break;
+                }
+            }
+
+
+
+            return objExibicao;
         }
     }
 }

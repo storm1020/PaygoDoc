@@ -148,19 +148,19 @@ namespace PaygoDoc
         }
         #endregion
 
-        private string LerListaEcolhas()
+        private List<string> CorrerListBox(ListBox lst)
         {
-            string retorno = string.Empty;
+            List<string> retorno = new List<string>();
 
-            if (lstChoice.Items.Count == 0)
+            if (lst.Items.Count == 0)
             {
                 MessageBox.Show("A lista não contém itens.");
             }
             else
             {
-                foreach (var item in lstChoice.Items)
+                foreach (var item in lst.Items)
                 {
-                    retorno = item.ToString();
+                    retorno.Add(item.ToString());
                 }
             }
 
@@ -169,14 +169,13 @@ namespace PaygoDoc
 
         private void BtnGerar_Click(object sender, RoutedEventArgs e)
         {
-            List<string> descricoes = new List<string>();
+            Exibicao exibicao = new Exibicao();
 
-            descricoes = GetAllDescricoesEnum();
+            List<string> listaNomesMetodos = CorrerListBox(lstChoice);
 
-            foreach (var item in descricoes)
-            {
+            exibicao.SetNomeMetodo(listaNomesMetodos);
 
-            }
+            exibicao.MontarExibicao(exibicao);
         }
     }
 }

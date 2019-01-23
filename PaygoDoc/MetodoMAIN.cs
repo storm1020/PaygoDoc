@@ -9,16 +9,10 @@ namespace PaygoDoc
 {
     public class MetodoMAIN : MetodosMODEL
     {
-        public static List<string> GetMetodos()
-        {
-            List<string> retorno = new List<string>();
-            foreach (var item in Enum.GetNames(typeof(Metodos)))
-            {
-                if (!item.Equals("Todos")) retorno.Add(item);
-            }
-            return retorno;
-        }
-
+        /// <summary>
+        /// GetAll para popular o menu windowsform.
+        /// </summary>
+        /// <returns></returns>
         public static List<string> GetAllMetodos()
         {
             List<string> retorno = new List<string>();
@@ -29,37 +23,18 @@ namespace PaygoDoc
             return retorno;
         }
 
-        public static string GetMetodoPorNome (string param)
+        public static string GetMetodoPorEscolha(string escolha)
         {
-            List<string> mtds = new List<string>();
-            string metodoCorreto = string.Empty;
+            string ret = string.Empty;
 
-            foreach (var name in Enum.GetNames(typeof(Metodos)))
+            foreach (var item in Enum.GetValues(typeof(Metodos)))
             {
-                if (name.Contains(param))
+                if (escolha.Contains(item.ToString()))
                 {
-                    metodoCorreto = name;
+                    ret = item.ToString();
                 }
             }
-
-            return metodoCorreto;
-        }
-
-        public string MontarMetodo(string param)
-        {
-            string retorno = string.Empty;
-            List<string> EntradaDefault = new List<string>();
-
-            switch (param)
-            {
-                case "Pw_iInit":
-                    EntradaDefault = EntradaMAIN.GetEntradaPorMetodo(param);
-                    retorno = string.Format("{0}", param);
-                    break;
-            }
-
-
-            return retorno;
+            return ret;
         }
     }
 }
