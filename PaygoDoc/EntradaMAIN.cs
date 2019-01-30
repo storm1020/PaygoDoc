@@ -91,7 +91,7 @@ namespace PaygoDoc
             List<string> parametroRetorno = new List<string>();
             switch (param)
             {
-                case "Pw_iInit":
+                case "PW_iInit":
                     parametroRetorno.Add(Convert.ToString(Default.pszWorkingDir));
                     break;
             }

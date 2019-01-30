@@ -14,6 +14,7 @@ namespace PaygoDoc
     {
         public List<string> NomeMetodo { get; set; }
         public List<string> EntradaMetodo { get; set; }
+        public List<string> RetornoMetodo { get; set; }
         public string DescricaoMetodo { get; set; }
         public List<string> ExemploMetodo { get; set; }
 
@@ -30,6 +31,11 @@ namespace PaygoDoc
         public string GetAll ()
         {
             return NomeMetodo + "," + EntradaMetodo + "," +  DescricaoMetodo + "," + ExemploMetodo;
+        }
+
+        public List<string> GetRetornoMetodo()
+        {
+            return RetornoMetodo;
         }
 
         public string GetNomeMetodo()
@@ -52,12 +58,18 @@ namespace PaygoDoc
             return ExemploMetodo;
         }
 
-        public void SetAll(List<string> nm, List<string> etd, string ds, List<string> ex)
+        public void SetAll(List<string> nm, List<string> etd, List<string> rtnmtd, string ds, List<string> ex)
         {
             this.NomeMetodo = nm;
             this.EntradaMetodo = etd;
+            this.RetornoMetodo = rtnmtd;
             this.DescricaoMetodo = ds;
             this.ExemploMetodo = ex;
+        }
+
+        public void SetRetornoMetodo(List<string> rtnmtd)
+        {
+            this.RetornoMetodo = rtnmtd;
         }
 
         public void SetNomeMetodo(List<string> nmmtd)
@@ -84,18 +96,27 @@ namespace PaygoDoc
         {
             Exibicao obj = objExibicao;
 
-            foreach (var nome in obj.GetNomeMetodo())
+            foreach (var nome in obj.NomeMetodo)
             {
                 string nm = nome.ToString();
                 switch (nm)
                 {
                     case "PW_iInit":
 
+                        obj.GetNomeMetodo();
+                        obj.SetEntradaMetodo(GetEntradaPorMetodo(nm));
+
+
+                        GetExemploMetodo();
+
+                        //obj.SetDescricaoMetodo();
+
+                        //obj.SetDescricaoMetodo();
+                        //obj.SetRetornoMetodo();
+
                         break;
                 }
             }
-
-
 
             return objExibicao;
         }

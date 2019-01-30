@@ -201,6 +201,9 @@ namespace PaygoDoc
 
         public enum PWINFO : int
         {
+            [Description("Diretório de trabalho (caminho completo, com final nulo) para uso exclusivo do Pay&Go Web.")]
+            pszWorkingDir = 0,
+
             /// <summary>
             /// Preenche (PWOPER_xxx), Consultar os valores possíveis na descrição da função (PW_iNewTransac).
             /// </summary>

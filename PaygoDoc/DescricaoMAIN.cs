@@ -11,8 +11,16 @@ namespace PaygoDoc
 {
     public class DescricaoMAIN
     {
-        public static string GetDescricaoEnum()
+        public static string GetDescricaoEnum(List<string> nomeDeEntradas)
         {
+            foreach (var item in nomeDeEntradas)
+            {
+                if (!string.IsNullOrWhiteSpace(item.ToString()))
+                {
+                    
+                }
+            }
+
             var val = PWINFO.PWINFO_AUTCAP;
             var desc = "None";
 
