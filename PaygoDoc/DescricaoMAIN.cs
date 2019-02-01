@@ -11,36 +11,39 @@ namespace PaygoDoc
 {
     public class DescricaoMAIN
     {
-        public static string GetDescricaoEnum(List<string> nomeDeEntradas)
+        public static List<string> GetDescricaoEnumPorNomeEntrada(List<string> nomeDeEntradas)
         {
+            List<string> listaParametros = new List<string>();
+
             foreach (var item in nomeDeEntradas)
             {
-                if (!string.IsNullOrWhiteSpace(item.ToString()))
+                var val = PWINFO.PWINFO_AUTCAP;
+                string desc = item.ToString();
+
+                if (!string.IsNullOrWhiteSpace(desc.ToString()))
                 {
-                    
+                    var field = val.GetType()
+                                   .GetField(val.ToString());
+
+                    var attr = field
+                               .GetCustomAttributes(
+                                                    typeof(DescriptionAttribute),
+                                                    false
+                                                    );
+
+                    if (attr.Length > 0)
+                    {
+                        var da =
+                            attr[0] as DescriptionAttribute;
+
+                        desc = da.Description;
+                    }
+
+                    listaParametros.Add(desc);
                 }
             }
 
-            var val = PWINFO.PWINFO_AUTCAP;
-            var desc = "None";
-
-            var field = val.GetType()
-                        .GetField(val.ToString());
-
-            var attr = field.GetCustomAttributes(
-                typeof(DescriptionAttribute),
-                false
-                );
-
-            if (attr.Length > 0)
-            {
-                var da =
-                    attr[0] as DescriptionAttribute;
-
-                desc = da.Description;
-            }
-
-            return desc;
+            return listaParametros;
         }
 
         public static List<string> GetAllDescricoesEnum()

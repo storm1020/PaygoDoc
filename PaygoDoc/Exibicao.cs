@@ -15,12 +15,12 @@ namespace PaygoDoc
         public List<string> NomeMetodo { get; set; }
         public List<string> EntradaMetodo { get; set; }
         public List<string> RetornoMetodo { get; set; }
-        public string DescricaoMetodo { get; set; }
+        public List<string> DescricaoMetodo { get; set; }
         public List<string> ExemploMetodo { get; set; }
 
         public Exibicao() { }
 
-        public Exibicao(List<string> nmmtd, List<string> etdmtd, string ds, List<string> exmtd)
+        public Exibicao(List<string> nmmtd, List<string> etdmtd, List<string> ds, List<string> exmtd)
         {
             this.NomeMetodo = nmmtd;
             this.EntradaMetodo = etdmtd;
@@ -48,7 +48,7 @@ namespace PaygoDoc
             return EntradaMetodo;
         }
 
-        public string GetDescricaoMetodo()
+        public List<string> GetDescricaoMetodo()
         {
             return DescricaoMetodo;
         }
@@ -58,7 +58,7 @@ namespace PaygoDoc
             return ExemploMetodo;
         }
 
-        public void SetAll(List<string> nm, List<string> etd, List<string> rtnmtd, string ds, List<string> ex)
+        public void SetAll(List<string> nm, List<string> etd, List<string> rtnmtd, List<string> ds, List<string> ex)
         {
             this.NomeMetodo = nm;
             this.EntradaMetodo = etd;
@@ -82,9 +82,9 @@ namespace PaygoDoc
             this.EntradaMetodo = etdMetodo;
         }
 
-        public void SetDescricaoMetodo(string dsc)
+        public void SetDescricaoMetodo(List<string> descricao)
         {
-            this.DescricaoMetodo = dsc;
+            this.DescricaoMetodo = descricao;
         }
 
         public void SetExemploMetodo(List<string> exmtd)
@@ -105,14 +105,11 @@ namespace PaygoDoc
 
                         obj.GetNomeMetodo();
                         obj.SetEntradaMetodo(GetEntradaPorMetodo(nm));
-
-
-                        GetExemploMetodo();
-
-                        //obj.SetDescricaoMetodo();
-
-                        //obj.SetDescricaoMetodo();
-                        //obj.SetRetornoMetodo();
+                        obj.SetDescricaoMetodo(
+                        GetDescricaoEnumPorNomeEntrada(
+                                                        GetEntradaMetodo()
+                                                        )
+                                                        );
 
                         break;
                 }
